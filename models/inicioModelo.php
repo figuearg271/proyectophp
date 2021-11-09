@@ -28,11 +28,11 @@
 
         public function validarLogin(){
             $rol = "";
-            $sql = "SELECT nivel FROM usuario WHERE usuario ='".$this->usuario."' 
-            AND pass='".$this->contrasena."'";
+             $sql = "SELECT id_rol FROM usuario WHERE usuario ='".$this->usuario."' 
+            AND clave='".$this->contrasena."'";
             $datos = $this->getDb()->conectar()->query($sql);
             while($fila = $datos->fetch_assoc()){
-                $rol = $fila['nivel'];
+                $rol = $fila['id_rol'];
             }
             return $rol;
         }

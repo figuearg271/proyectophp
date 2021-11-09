@@ -9,7 +9,7 @@
             $this->host = 'localhost';
             $this->user = 'root';
             $this->pass = '';
-            $this->db = 'examen03';
+            $this->db = 'catastro';
         }
 
         public function conectar(){

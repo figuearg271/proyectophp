@@ -5,7 +5,10 @@
 
         public function __construct(){
             $this->view = new View();
-            session_start();
+            if(!isset($_SESSION)) 
+            { 
+                session_start(); 
+            }  
         }
 
         public function loadModel($modelo){

@@ -1,2 +1,2 @@
 <?php
-define('URL', 'http://localhost/examenphp/');
+define('URL', 'http://localhost/proyectophp/');
