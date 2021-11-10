@@ -25,7 +25,7 @@
           Control de Agua
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            <li> <a class="dropdown-item" href="#">Activar contadores</a>  </li>
+            <li> <a class="dropdown-item" href="<?= constant('URL') ?>contadores/index">Activar contadores</a>  </li>
             <li>   <a class="dropdown-item" href="#">Registro de medidas de agua</a> </li> 
             <li> <a class="dropdown-item" href="#">Listado de contadores</a></li> 
           </ul>

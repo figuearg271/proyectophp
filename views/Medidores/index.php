@@ -18,23 +18,17 @@
     ?>
     <div class="container">
         <div class="row justify-content-center mt-4">
-            <div class="col-lg-10 mt-4">
-                <?php
-                if ($_SESSION['rol'] == 1) {
-                ?>
-                    <a href="<?= constant('URL') ?>producto/nuevo" class="btn btn-block btn-primary mt-3">Agregar Empleado</a>
-                <?php
-                }
-                ?>
-                <h2 class="text-center p-3 text-primary">Empleados</h2>
+            <div class="col-lg-10 mt-4">  
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                         Agregar Contador
+                </button> 
+                <h2 class="text-center p-3 text-primary">Contadores</h2>
                 <table class="table table-hover" id="productos">
                     <thead class="thead-dark text-white text-center">
                         <tr>
                             <th scope="col">Código</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Edad</th>
-                            <th scope="col">Sueldo base</th>
-                            <th scope="col">Área</th>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Estado</th> 
                             <th scope="col">Acciones</th>
                         </tr>
                     </thead>
@@ -60,6 +54,47 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.2/sweetalert2.min.js" 
 integrity="sha512-2sjxi4MoP9Gn7QE0NhJdxOFVMK/qYsZO6JnO6pngGvck8p5UPwFX2LV5AsAMOQYgvbzMmki6sIqJ90YO3STAnA==" 
 crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nuevo contador</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body"> 
+            <form action="#" method="POST" id="frmcontadores">
+                Servicio:
+                <input type="text" class="form-control" name="txtNombre">
+                Cliente:
+                <select class="form-control" name="sCliente">
+                    <?php
+                    $datos = $this->clientes;
+                    foreach ($datos as $value) {
+                    ?>
+                        <option value="<?= $value['id_persona'] ?>"><?= $value['nombre'] ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+                Estado
+                <select class="form-control">
+                    <option value="">Seleccione</option>
+                    <option value="1">Activo</option>
+                    <option value="2">Inactivo</option>
+                    <option value="3">Suspendido</option> 
+                </select>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Agregar</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 
 </html>
